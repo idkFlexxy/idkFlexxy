@@ -1,0 +1,59 @@
+import java.util.*;
+class addsub
+{ 
+int num1;
+int num2;
+addsub(int n1, int n2)
+{
+num1 = n1;
+num2 = n2;
+} 
+int add()
+{ 
+return num1+num2;
+} 
+int sub()
+{ 
+return num1-num2;
+} 
+}
+class multdiv extends addsub
+{ 
+public multdiv(int n1, int n2)
+{
+super(n1, n2);
+}
+int mul()
+{
+return num1*num2;
+}
+float div()
+{
+return num1/num2;
+}
+public void display()
+{
+System.out.println("Number 1 :" + num1);
+System.out.println("Number 2 :" + num2);
+}
+}
+public class adsb
+{ 
+public static void main(String arg[])
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter two numbers:");
+int n1=sc.nextInt();
+int n2=sc.nextInt();
+addsub r1=new addsub(n1,n2);
+int ad = r1.add();
+int sb = r1.sub();
+System.out.println("Addition =" +ad);
+System.out.println("Subtraction =" +sb);
+multdiv r2 =new multdiv(n1,n2);
+int ml = r2.mul();
+float dv =r2.div();
+System.out.println("Multiply =" +ml);
+System.out.println("Division =" +dv);
+}
+}
