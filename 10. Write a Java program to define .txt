@@ -1,0 +1,618 @@
+10. Write a Java program to define a class called employee with the name and date of 
+appointment. Create ten employee objects as an array and sort them as per their date of 
+appointment. ie, print them as per their seniority. 
+import java.util.*;
+class employee
+{
+String name;
+
+Date appdate;
+public employee(String nm,Date apdt)
+{
+name=nm;
+appdate=apdt;
+}
+public void display()
+{
+System.out.println("employee name:"+name+" appoinment date:"+ appdate.getDate()+"/" 
++appdate.getMonth()+"/"+appdate.getYear());
+}
+}
+class EmployeeDemo
+{
+public static void main(String as[])
+{
+employee emp[]=new employee[10];
+emp[0]=new employee("shaha PD",new Date(1999,05,22));
+emp[1]=new employee("Patil AS",new Date(2000,01,12));
+emp[2]=new employee("Phadake PV",new Date(2009,04,25));
+emp[3]=new employee("Shinde SS",new Date(2005,02,19));
+emp[4]=new employee("Shrivastav RT",new Date(2010,01,01));
+emp[5]=new employee("Amitha S",new Date(2005,04,20));
+emp[6]=new employee("Bhoomika S",new Date(2000,04,10));
+emp[7]=new employee("Karan",new Date(2002,06,5));
+emp[8]=new employee("Avinash",new Date(2001,02,9));
+emp[9]=new employee("Ravi V",new Date(2010,9,23));
+System.out.println("List of employees");
+for(int i=0;i<emp.length;i++)
+emp[i].display();
+for(int i=0;i<emp.length;i++)
+{
+for(int j=0;j<emp.length;j++)
+{
+if(emp[i].appdate.after(emp[j].appdate))
+{
+employee t=emp[i];
+emp[i]=emp[j];
+emp[j]=t;
+}
+}
+}
+System.out.println("List of employees seniority wise");
+for(int i=0;i<emp.length;i++)
+emp[i].display();
+}
+}
+
+
+
+
+
+
+
+
+11. Create a package ‘student.Fulltime.BCA’ in your current working directory a. Create a
+default class student in the above package with the following attributes: Name, age, sex. b. 
+Have methods for storing as well as displaying 
+package studentFulltimeBCA;
+
+public class StudentInfo
+{
+int age;
+char sex;
+String name,add,fn,mn;
+public StudentInfo(int e,char f,String a,String b,String c,String d)
+{
+age=e;
+sex=f;
+name=a;
+add=d;
+fn=b;
+mn=c;
+}
+public void display()
+{
+System.out.println("STUDENT PERSONAL DETAILS");
+System.out.println("Name of the student is: "+name);
+System.out.println("Age="+age);
+System.out.println("Student is "+sex); 
+System.out.println("Address of the student is: "+add);
+System.out.println("Father's name: "+fn);
+System.out.println("Mother'sname is: "+mn);
+}
+}
+/*Main Class*/
+import studentFulltimeBCA.StudentInfo;
+class PackageDemo
+{
+public static void main(String args[])
+{
+StudentInfo a=new StudentInfo(18,'M',"PETER","Mr. JOHN", "Mrs.MARY", "VIZAG");
+a.display();
+}
+}
+Execution of the program:
+D:\shilpa\JAVA\jprog>javac StudentInfo.java
+D:\shilpa\JAVA\jprog>javac -d . StudentInfo.java
+D:\shilpa\JAVA\jprog>javac PackageDemo.java
+D:\shilpa\JAVA\jprog>java PackageDemo
+
+
+
+
+
+
+
+
+12. Write a small java program to catch Negative Array Size Exception. This exception is caused 
+when the array is initialized to negative values. 
+
+public class NegativeArraySizeExceptionExample {
+ public static void main(String[] args) {
+ try {
+ int[] array = new int[-5];
+ } catch (NegativeArraySizeException nase) {
+ nase.printStackTrace();
+ //handle the exception
+ }
+ System.out.println("Continuing execution...");
+ }
+}
+
+
+
+
+
+
+
+13. Write a program to handle Null Pointer Exception and use the “finally” method to display a 
+message to the user. 
+class NpeFinallyBlock { 
+ public static void main(String args[]){ 
+ String ptr=null; 
+ try{ 
+// This line of code throws NullPointerException
+// because ptr is null 
+if (ptr.equals("gfg"))
+ System.out.print("Same");
+ else
+ System.out.print("Not Same"); 
+ } 
+ catch(NullPointerException e){ 
+System.out.println("NullPointerException Caught"); 
+} 
+//executed regardless of exception occurred or not 
+finally { 
+System.out.println("finally block is always executed"); 
+} 
+ 
+System.out.println("rest of the code..."); 
+ } 
+}
+
+
+
+
+
+14. Write a java program which create and displays a message on the window 
+import java.applet.Applet; 
+import java.awt.Graphics; 
+public class FirstApplet extends Applet
+{ 
+public void paint(Graphics g)
+{ 
+g.drawString("Welcome to Applet",50,150); 
+} 
+
+} 
+/* 
+<applet code="FirstApplet.class" width="300" height="300"> 
+</applet> 
+*/
+Execution of the program:
+D:\shilpa\JAVA\jprog\applets>javac FirstApplet.java
+D:\shilpa\JAVA\jprog\applets>appletviewer FirstApplet.java
+
+
+
+
+
+
+15. Write a java program to draw several shapes in the created window 
+import java.awt.*; 
+import java.applet.*; 
+ 
+public class shap extends Applet 
+{ 
+public void paint(Graphics g) 
+ { 
+ g.drawLine(25,25,100,25); 
+ g.drawRect(25,50,100,50); 
+ g.fillRect(145,50,100,50); 
+ g.drawRect(265,50,50,50); 
+ g.drawRoundRect(25,125,100,50,15,15); 
+ g.fillRoundRect(145,125,100,50,15,15); 
+ g.drawOval(25,205,100,50); 
+ g.fillOval(145,205,100,50); 
+ g.drawOval(265,205,50,50); 
+ } 
+} 
+ 
+/* <applet code = "shap.class" height = 500 width =500> 
+ </applet> */ 
+
+
+
+
+
+
+16. Write a program to create an applet and draw grid lines
+import java.awt.*;
+import java.applet.*;
+public class grid extends Applet
+{
+public void paint(Graphics g)
+{
+int row, column,x,y=20;
+for(row=1;row<5;row++)
+{
+x=20;
+for(column=1;column<5;column++)
+{
+
+g.drawRect(x,y,40,40);
+x=x+20;
+}
+y=y+20;
+}
+}
+}
+/*<applet code="grid.class" height=500 width=500> 
+</applet>*/
+
+
+
+
+
+17. Write a program which creates a frame with two buttons father and mother. When we click 
+the father button the name of the father, his age and designation must appear. When we click 
+mother similar details of mother also appear. 
+import java.awt.event.*;
+import java.awt.*;
+public class Buttons 
+{
+public static void main(String[] args)
+ {
+ Frame f=new Frame("Button Event");
+Label l=new Label("DETAILS OF PARENTS");
+l.setFont(new Font("Calibri", Font.BOLD,16));
+final Label n1=new Label();
+final Label d1=new Label();
+final Label a1=new Label();
+l.setBounds(20,20,500,50);
+n1.setBounds(20,110,500,30);
+d1.setBounds(20,150,500,30);
+a1.setBounds(20,190,500,30);
+ Button fb = new Button("Father");
+ fb.setBounds(20,70,50,30);
+ fb.addActionListener(new ActionListener(){
+ public void actionPerformed(ActionEvent e){
+n1.setText("Name:"+" "+"Ram");
+d1.setText("Designation:"+" "+"Manager");
+a1.setText("Age:"+" "+"45");
+ }
+});
+ Button mb = new Button("Mother");
+ mb.setBounds(80,70,50,30);
+ mb.addActionListener(new ActionListener(){
+ public void actionPerformed(ActionEvent e){
+n1.setText("Name:"+" "+"Anitha");
+d1.setText("Designation:"+" "+"Professor");
+a1.setText("Age:"+" "+"40");
+ }
+});
+f.add(fb);
+f.add(mb);
+JAVA PROGRAMMING LAB M S RAMAIAH COLLEGE OF ARTS, SCIENCE AND COMMERCE
+SHILPA NAYAK 13
+f.add(l);
+f.add(n1);
+f.add(d1);
+f.add(a1);
+f.setSize(250,250);
+f.setLayout(null);
+f.setVisible(true);
+}
+}
+
+
+
+
+
+
+
+18. Create a frame which displays your personal details with respect to a button click 
+import java.awt.event.*;
+import java.awt.*;
+public class PersonalDetails 
+{
+public static void main(String[] args)
+ {
+ Frame f=new Frame("Button Example");
+Label l=new Label("WELCOME TO MY PAGE");
+l.setFont(new Font("Calibri", Font.BOLD,16));
+final Label fn1=new Label();
+final Label mn1=new Label();
+final Label ln1=new Label();
+final Label r1=new Label();
+final Label a1=new Label();
+l.setBounds(250,30,600,50);
+fn1.setBounds(20,120,600,30);
+mn1.setBounds(20,160,600,30);
+ln1.setBounds(20,200,600,30);
+r1.setBounds(20,240,600,30);
+a1.setBounds(20,280,600,30);
+ Button mb = new Button("CLICK HERE FOR MY PERSONAL DETAILS");
+ mb.setFont(new Font("Calibri", Font.BOLD,14));
+mb.setBounds(210,70,320,30);
+ mb.addActionListener(new ActionListener(){
+ public void actionPerformed(ActionEvent e){
+fn1.setText("Full Name: Antara");
+mn1.setText("Father Name: Ranjit \t Mother Name: Kavana ");
+ln1.setText("RegNo: U18EV21S1456 \t Course: BCA ");
+r1.setText("College Name: M S Ramaiah College of arts, Science and Commerce");
+a1.setText("Address: Sanjayanagar, Bangalore");
+ }
+});
+ 
+f.add(mb);
+f.add(l);
+f.add(fn1);
+f.add(mn1);
+f.add(ln1);
+f.add(r1);
+f.add(a1);
+f.setSize(400,400);
+f.setLayout(null);
+f.setVisible(true);
+}
+}
+
+
+
+
+
+
+19. Create a simple applet which reveals the personal information of yours.
+import java.awt.*;
+import java.applet.*;
+import java.awt.event.*;
+public class AppletPersonalInfo extends Applet implements ActionListener
+{
+String s1=" ",s2=" ", s3=" ", s4=" ",s5=" ";
+public void init()
+{
+setLayout(null);
+setSize(400,300);
+Button bt=new Button("CLICK HERE FOR MY PERSONAL DETAILS");
+add(bt);
+bt.setBounds(20,50,300,30);
+bt.addActionListener(this);
+}
+public void actionPerformed(ActionEvent e)
+{
+s1="Full Name: Antara";
+s2="Father Name: Ranjit \t Mother Name: Kavana ";
+s3="RegNo: U18EV21S1456 \t Course: BCA ";
+s4="College Name: M S Ramaiah College of arts, Science and Commerce";
+s5="Address: Sanjayanagar, Bangalore"; 
+repaint();
+}
+public void paint(Graphics g)
+{
+g.setFont(new Font("Calibri", Font.BOLD,14));
+g.drawString(s1,20,110);
+g.drawString(s2,20,140);
+g.drawString(s3,20,180);
+g.drawString(s4,20,220);
+g.drawString(s5,20,260);
+}
+}
+/*<applet code="AppletPersonalInfo.class" height=400 width=400>
+</applet>*/
+
+
+
+
+
+
+
+20. Write a program to move different shapes according to the arrow key pressed. 
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+public class ArrowKeysApplet extends Applet implements KeyListener
+{
+int x1=100,y1=50,x2=250,y2=200;
+public void init()
+{
+addKeyListener(this);
+}
+public void keyPressed(KeyEvent ke)
+{
+showStatus("KeyDown");
+int key=ke.getKeyCode();
+switch(key)
+{
+case KeyEvent.VK_LEFT: x1=x1-10;
+x2=x2-10;
+break;
+case KeyEvent.VK_RIGHT: x1=x1+10;
+x2=x2+10;
+break;
+case KeyEvent.VK_UP: y1=y1-10;
+y2=y2-10;
+break;
+case KeyEvent.VK_DOWN: y1=y1+10;
+y2=y2+10;
+break;
+}
+repaint();
+}
+public void keyReleased(KeyEvent ke)
+{
+}
+public void keyTyped(KeyEvent ke)
+{
+repaint();
+}
+public void paint(Graphics g)
+{
+g.drawLine(x1,y1,x2,y2);
+g.drawRect(x1,y1+160,100,50);
+g.drawOval(x1,y1+235,100,50);
+}
+}
+
+/*<applet code="ArrowKeysApplet.class" width=400 height=400>
+</applet>*/
+
+
+
+
+
+
+
+21. Write a java Program to create a window when we press M or m the window displays 
+GoodMorning, A or a the window displays Good After Noon E or e the window displays Good 
+Evening, N or n the window displays Good Night 
+import java.awt.event.*;
+import java.awt.*;
+public class KeysDemo extends Frame implements KeyListener
+{
+Label lbl;
+KeysDemo()
+ {
+ addKeyListener(this);
+lbl=new Label();
+lbl.setBounds(100,100,200,40);
+lbl.setFont(new Font("Calibri", Font.BOLD,16));
+add(lbl);
+setSize(400,400);
+setLayout(null);
+setVisible(true);
+}
+public void keyPressed(KeyEvent e)
+{
+if(e.getKeyChar()=='M' || e.getKeyChar()=='m')
+lbl.setText("GOOD MORNING");
+else if(e.getKeyChar()=='A' || e.getKeyChar()=='a')
+lbl.setText("GOOD AFTERNOON");
+else if(e.getKeyChar()=='E' || e.getKeyChar()=='e')
+lbl.setText("GOOD EVENING");
+else if(e.getKeyChar()=='N' || e.getKeyChar()=='n')
+lbl.setText("GOOD NIGHT");
+}
+public void keyReleased(KeyEvent e)
+{
+}
+public void keyTyped(KeyEvent e)
+{
+}
+public static void main(String[] args)
+{
+new KeysDemo();
+
+}
+}
+
+
+
+
+
+
+22. Demonstrate the various mouse handling events using suitable example. 
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+/*
+<applet code="MouseEvents" width=300 height=100>
+</applet>
+*/
+public class MouseEvents extends Applet implements MouseListener, MouseMotionListener 
+{
+String msg = "";
+public void init() 
+{
+addMouseListener(this);
+addMouseMotionListener(this);
+}
+// Handle mouse clicked.
+public void mouseClicked(MouseEvent me) 
+{
+msg = "Mouse clicked.";
+repaint();
+}
+// Handle mouse entered.
+public void mouseEntered(MouseEvent me) 
+{
+// save coordinates
+msg = "Mouse entered.";
+repaint();
+}
+// Handle mouse exited.
+public void mouseExited(MouseEvent me) 
+{
+// save coordinates
+msg = "Mouse exited.";
+repaint();
+}
+// Handle button pressed.
+public void mousePressed(MouseEvent me) 
+{
+// save coordinates
+msg = "Mouse Pressed";
+repaint();
+}
+
+// Handle button released.
+public void mouseReleased(MouseEvent me) 
+{
+// save coordinates
+msg = "Mouse Released";
+repaint();
+}
+// Handle mouse dragged.
+public void mouseDragged(MouseEvent me) 
+{
+// save coordinates
+msg = "Mouse Dragged";
+repaint();
+}
+// Handle mouse moved.
+public void mouseMoved(MouseEvent me) 
+{
+// show status
+showStatus("Moving mouse at " + me.getX() + ", " + me.getY());
+}
+// Display msg in applet window at current X,Y location.
+public void paint(Graphics g) 
+{
+g.drawString(msg, 20, 50);
+}
+}
+
+
+
+
+
+
+
+23. Write a program to create menu bar and pull-down menus. 
+import java.awt.*;
+class MenuExample 
+{
+MenuExample()
+{ 
+Frame f= new Frame("Menu and MenuItem Example"); 
+ MenuBar mb=new MenuBar(); 
+ Menu menu=new Menu("Continents"); 
+ Menu submenu=new Menu("Asia"); 
+ MenuItem i1=new MenuItem("Africa"); 
+ MenuItem i2=new MenuItem("Antartica"); 
+ MenuItem i3=new MenuItem("Europe"); 
+ MenuItem i4=new MenuItem("South America"); 
+ MenuItem i5=new MenuItem("North America"); 
+MenuItem i6=new MenuItem("Asia");
+MenuItem i7=new MenuItem("India");
+MenuItem i8=new MenuItem("China");
+MenuItem i9=new MenuItem("Pakistan");
+ menu.add(i1); 
+ menu.add(i2); 
+ menu.add(i3); 
+menu.add(i4);
+menu.add(i5); 
+ submenu.add(i7); 
+ submenu.add(i8);
+submenu.add(i9); 
+ menu.add(submenu); 
+ mb.add(menu); 
+ f.setMenuBar(mb); 
+ f.setSize(400,400); 
+ f.setLayout(null); 
+ f.setVisible(true); 
+} 
+public static void main(String args[]) 
+{ 
+new MenuExample(); 
+} }
